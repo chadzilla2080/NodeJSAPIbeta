@@ -18,7 +18,7 @@ const data = [
   {
     id: 3,
     firstName: "Elias",
-    lastNane: "Rafa",
+    lastNane: "Rafat",
     email: "eliasrafat@gmail.com",
   },
 ];
@@ -30,13 +30,18 @@ const data = [
 // });
 
 const server = http.createServer((req, res) => {
+  res.setHeader("Content-Type", "application/json");
+  res.setHeader("Content-Language", "es-US");
+  res.setHeader("Date", new Date(Date.now()));
+  res.setHeader("X-Powered-By", "Node,js;");
   res.end(
-      JSON.stringify({
-          success : true, 
-          data : data
-      })
-  )
+    JSON.stringify({
+      success: true,
+      data: data,
+    })
+  );
+});
 
 server.listen(3000, () => {
-  console.log("Server is started");
+  console.log("Server is started on Port 3000!");
 });
